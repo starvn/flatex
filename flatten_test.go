@@ -23,7 +23,7 @@ import (
 
 func ExampleFlatten() {
 	sample := map[string]interface{}{
-		"supu":  42,
+		"sonic": 42,
 		"turbo": false,
 		"foo":   "bar",
 		"a": map[string]interface{}{
@@ -60,7 +60,7 @@ func ExampleFlatten() {
 	// 	"collection.1.c": 42,
 	// 	"collection.1.d": "turbo",
 	// 	"foo": "bar",
-	// 	"supu": 42,
+	// 	"sonic": 42,
 	// 	"turbo": false
 	// }
 }

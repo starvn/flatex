@@ -32,29 +32,29 @@ func TestMap_Del(t *testing.T) {
 			name:    "unknown",
 			pattern: "abc",
 			in: map[string]interface{}{
-				"supu":  42,
+				"sonic": 42,
 				"turbo": false,
 			},
 			out: map[string]interface{}{
-				"supu":  42,
+				"sonic": 42,
 				"turbo": false,
 			},
 		},
 		{
 			name:    "plain",
-			pattern: "supu",
+			pattern: "sonic",
 			in: map[string]interface{}{
-				"supu":  42,
+				"sonic": 42,
 				"turbo": false,
 			},
 			out: map[string]interface{}{"turbo": false},
 		},
 		{
 			name:    "element_in_struct",
-			pattern: "internal.supu",
+			pattern: "internal.sonic",
 			in: map[string]interface{}{
 				"internal": map[string]interface{}{
-					"supu":  42,
+					"sonic": 42,
 					"turbo": false,
 				},
 				"turbo": false,
@@ -66,15 +66,15 @@ func TestMap_Del(t *testing.T) {
 		},
 		{
 			name:    "element_in_struct_with_wildcard",
-			pattern: "a.*.supu",
+			pattern: "a.*.sonic",
 			in: map[string]interface{}{
 				"a": map[string]interface{}{
 					"first": map[string]interface{}{
-						"supu":  42,
+						"sonic": 42,
 						"turbo": false,
 					},
 					"last": map[string]interface{}{
-						"supu":  42,
+						"sonic": 42,
 						"turbo": false,
 					},
 				},
@@ -91,7 +91,7 @@ func TestMap_Del(t *testing.T) {
 			pattern: "internal",
 			in: map[string]interface{}{
 				"internal": map[string]interface{}{
-					"supu":  42,
+					"sonic": 42,
 					"turbo": false,
 				},
 				"turbo": false,
@@ -102,20 +102,20 @@ func TestMap_Del(t *testing.T) {
 		},
 		{
 			name:    "element_in_substruct",
-			pattern: "internal.internal.supu",
+			pattern: "internal.internal.sonic",
 			in: map[string]interface{}{
 				"internal": map[string]interface{}{
-					"supu":  42,
+					"sonic": 42,
 					"turbo": false,
 					"internal": map[string]interface{}{
-						"supu":  42,
+						"sonic": 42,
 						"turbo": false,
 					},
 				},
 				"turbo": false,
 			},
 			out: map[string]interface{}{
-				"internal.supu":           42,
+				"internal.sonic":          42,
 				"internal.turbo":          false,
 				"internal.internal.turbo": false,
 				"turbo":                   false,
